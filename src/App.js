@@ -1,23 +1,46 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from './components/home.js';
+import NavBar from './components/NAvBar.js';
+import AllUsers from './components/AllUsers.js';
+import AddUser from './components/AddUSer';
+import EditUser from './components/EditUser';
+import { Switch, Route } from 'react-router-dom';
+import NotFound from './components/notfound';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <NavBar/>
+      
+      <Switch>
+        <Route exact path='/'>
+          <Home/>
+        </Route>   
+
+        <Route exact path='/allusers'>
+          <AllUsers/>
+        </Route> 
+
+        <Route exact path='/adduser'>
+          <AddUser/>
+        </Route> 
+
+        <Route exact path='/edituser/:id'>
+          <EditUser/>
+        </Route>   
+                {/* dynamic routing is apply for edit method using individual id */}
+
+        <Route exact path='/notfound'>
+          <NotFound/>
+        </Route> 
+
+      </Switch>
+        
+      
+      
+      
     </div>
   );
 }
