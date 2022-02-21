@@ -1,4 +1,5 @@
-import { Input, Button, FormControl, FormGroup, InputLabel, makeStyles, Typography } from "@mui/material";
+import { Input, Button, FormControl, FormGroup, InputLabel, Typography } from "@mui/material";
+import { makeStyles } from '@mui/styles';
 import { useEffect, useState } from "react";
 import {editUser, getUsers} from '../APIs/api';
 import { useHistory, useParams } from "react-router-dom";

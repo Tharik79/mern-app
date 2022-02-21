@@ -1,19 +1,21 @@
-import { Button, makeStyles, Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
+import { Button, Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
+import { makeStyles } from '@mui/styles';
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getUsers, deleteUser } from "../APIs/api";
 
 const useStyles = makeStyles({
     table: {
-        width: '90%',
-        margin: '50px 0 0 50px'
+        width: '70%',
+        margin: '50px 0 0 50px',
+        marginRight: '100PX'
     },
 
     thead: {
         '& > *': {
             background: 'linear-gradient(to left top, #88149b, #006cdc, #0097d7, #00b5aa, #82ca87);',
             color: '#FFFFFF',
-            fontsize: 20
+            fontsize: 30
 
         }
     },
@@ -85,26 +87,27 @@ const AllUsers = () => {
         <Table className={classes.table}>
             <TableHead>
                 <TableRow className={classes.thead}>
-                    <TableCell>id</TableCell>
-                    <TableCell>name</TableCell>
-                    <TableCell>user name</TableCell>
-                    <TableCell>email</TableCell>
-                    <TableCell>phone</TableCell>
+                    <TableCell>ID</TableCell>
+                    <TableCell>NAME</TableCell>
+                    <TableCell>USER NAME</TableCell>
+                    <TableCell>EMAIL</TableCell>
+                    <TableCell>PHONE</TableCell>
+                    <TableCell>EDIT</TableCell>
                 </TableRow>
             </TableHead>
             <TableBody>
                 {
                     users.map( user => (
-                        <TableRow className={classes.row}>
-                            <TableCell>{user.id}</TableCell>
+                        <TableRow className={classes.row} key={user._id}>
+                            <TableCell>{user._id}</TableCell>
                             <TableCell>{user.name}</TableCell>
                             <TableCell>{user.username}</TableCell>
                             <TableCell>{user.email}</TableCell>
                             <TableCell>{user.phone}</TableCell>
                             <TableCell>
                                 <Button variant="contained" color="primary" style={{marginRight:10}}  component={Link}
-                                to={`/edit/${user.id}`}>Edit</Button>
-                                <Button variant="contained" color="secondary" onClick={deleteUserData(user.id)}>
+                                to={`/edit/${user._id}`}>Edit</Button>
+                                <Button variant="contained" color="secondary" onClick={() => deleteUserData(user._id)}>
                                         Delete
                                 </Button>
                             </TableCell>

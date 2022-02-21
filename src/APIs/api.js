@@ -6,7 +6,7 @@ export const getUsers = async(id) => {
 
     id = id || "";     //to check if id available for edit operation of no id to print simply get all users list.
     
-    return await axios.get(`${usersUrl}/${id}`);
+    return await axios.get(`${usersUrl}`);
 }
 // modified the getUsers by inserting id as props in the function in order to get Users list for edit operation.
 //export default getUsers;
