@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const usersUrl = "http://localhost:9000/users";
+const usersUrl = "https://mern-app-codefor.herokuapp.com/users";
+
+// const usersUrl = "http://localhost:9000/users";
 
 export const getUsers = async(id) => {
 
